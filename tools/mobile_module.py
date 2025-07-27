@@ -12,7 +12,7 @@ def show_menu(option):
     print("-"*30)
     option = input("Enter your choice: ")
     return option
-
+#------------------------------------------------
 
 def product_add(product):
     name=input("Enter your phone name: ")
@@ -22,17 +22,30 @@ def product_add(product):
     product={"name":name, "code":code, "brand":brand, "price":price}
     product_list.append(product)
     return product
+#------------------------------------------------
 
 def code_search(code):
     if code in product_list:
         return code
+#------------------------------------------------
         
 def brand_checker(brand):
-    pass
+    if re.match(r"^[samsung|apple]$"):
+        return brand
+    else:
+        print("Please enter a valid brand")
+#------------------------------------------------
 
 def code_checker(code):
-    pass
+    if re.match(r"^[a-zA-Z]{2}\d{5}$", code):
+        return code
+    else:
+        print("Please enter a valid code")
+#------------------------------------------------
 
 def price_checker(price):
-    pass
+    if re.match(r"^\d{9}$", price):
+        return price
+    else:
+        print("Please enter a valid price")
 
